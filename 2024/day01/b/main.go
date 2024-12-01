@@ -13,15 +13,20 @@ func main() {
 	arr1, arr2 := readData()
 	resultArr := make([]int, 0, 1000)
 
-	// Bruteforcing because n2 is still only a million operations
-	for i := 0; i < len(arr1); i++ {
-		count := 0
+	countMap := make(map[int]int)
 
-		for j := 0; j < len(arr2); j++ {
-			if arr1[i] == arr2[j] {
-				count += 1
-			}
+	for i := 0; i < len(arr2); i++ {
+		_, ok := countMap[arr2[i]]
+
+		if !ok {
+			countMap[arr2[i]] = 1
+		} else {
+			countMap[arr2[i]] += 1
 		}
+	}
+
+	for i := 0; i < len(arr1); i++ {
+		count := countMap[arr1[i]]
 
 		resultArr = append(resultArr, arr1[i]*count)
 	}
@@ -59,11 +64,4 @@ func readData() ([]int, []int) {
 	}
 
 	return array1, array2
-}
-
-func Abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
 }
