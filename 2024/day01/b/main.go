@@ -11,29 +11,16 @@ import (
 
 func main() {
 	arr1, arr2 := readData()
-	resultArr := make([]int, 0, 1000)
 
 	countMap := make(map[int]int)
 
-	for i := 0; i < len(arr2); i++ {
-		_, ok := countMap[arr2[i]]
-
-		if !ok {
-			countMap[arr2[i]] = 1
-		} else {
-			countMap[arr2[i]] += 1
-		}
-	}
-
-	for i := 0; i < len(arr1); i++ {
-		count := countMap[arr1[i]]
-
-		resultArr = append(resultArr, arr1[i]*count)
+	for _, num := range arr2 {
+		countMap[num]++
 	}
 
 	result := 0
-	for i := 0; i < len(resultArr); i++ {
-		result += resultArr[i]
+	for _, num := range arr1 {
+		result += num * countMap[num]
 	}
 
 	fmt.Printf("Result: %v\n", result)
