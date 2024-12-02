@@ -18,5 +18,6 @@ My solutions for [Advent of Code](https://adventofcode.com/) challenges.
 ## Progress 2024
 
 - [x] Day 1
+- [x] Day 2
 - [ ] Day 2
 
