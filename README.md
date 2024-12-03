@@ -19,5 +19,5 @@ My solutions for [Advent of Code](https://adventofcode.com/) challenges.
 
 - [x] Day 1
 - [x] Day 2
-- [ ] Day 2
+- [ ] Day 3
 
